@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+{%block titolo%}
+	{{block.super}} | GIORNALISTA
+{%endblock titolo%}
+{%block contenuti%}
+<h4>Elenco dei giornalisti:</h4>
+<div class='my-3'>
+    {% for giornalisti in newsgiornalistimodel_list %}
+    <p>{{forloop.counter}})</p><a>{{giornalisti.user}}</a>
+</div>  
+    <hr>
+    {%endfor%}        
+{%endblock contenuti%}
