@@ -1,1 +1,1 @@
-web: gunicorn verifica-filippelli.wsgi --log-file - 
+web: gunicorn verificaFilippelli.wsgi --log-file - 
