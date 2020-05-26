@@ -2,10 +2,10 @@
 {% block contenuti %}
 <h3>Elenco degli articoli</h3>
 <div class='my-3'></div>
-    {% for post in newsarticolimodel_list %}
-    <p>{{ forloop.counter }})  <a>{{ post.titolo }}</a><br>
-        <a>{{ post.contenuto }}</a>
-        <small>({{post.autore}})</small>
+    {% for articolo in articoli %}
+    <p>{{ forloop.counter }})  <a>{{ articolo.titolo }}</a><br>
+        <a>{{ articolo.contenuto }}</a>
+        <small>({{articolo.giornalista}})</small>
     </p>
     <hr>
 

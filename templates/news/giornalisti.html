@@ -5,9 +5,11 @@
 {%block contenuti%}
 <h4>Elenco dei giornalisti:</h4>
 <div class='my-3'>
-    {% for giornalisti in newsgiornalistimodel_list %}
-    <p>{{forloop.counter}})</p><a>{{giornalisti.user}}</a>
-</div>  
+    {% for giornalista in giornalisti %}
+    <p>{{ forloop.counter }})  
+        <a href="{% url 'news:lista_articoli_giornalista' pk=giornalista.id %}">{{ giornalista.nome }} {{ giornalista.cognome }}</a>
+    </p>
     <hr>
+</div>
     {%endfor%}        
 {%endblock contenuti%}

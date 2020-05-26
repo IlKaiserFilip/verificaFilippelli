@@ -1,19 +1,28 @@
-from django.db import models
-from django.urls import reverse
-from django.contrib.auth.models import User
+from django.db import models 
 
-# Create your models here.
-class NewsArticoliModel(models.Model):
+class Giornalista(models.Model):
+    nome = models.CharField(max_length=20)
+    cognome = models.CharField(max_length=20)
+    
+    def __str__(self):
+        return self.nome + " " + self.cognome
+    
+    class Meta:
+        verbose_name = "Giornalista"
+        verbose_name_plural = "Giornalisti"
+
+
+class Articolo(models.Model):
     titolo = models.CharField(max_length=100)
     contenuto = models.TextField()
-    autore = models.ForeignKey(User, on_delete=models.CASCADE, related_name="post", default=1)
+    giornalista = models.ForeignKey(Giornalista, on_delete=models.CASCADE, related_name="articoli") 
 
     def __str__(self):
         return self.titolo
 
-class NewsGiornalistiModel(models.Model):
-    user= models.CharField(max_length=100)
-    
-    
+    class Meta:
+        verbose_name = "Articolo"
+        verbose_name_plural = "Articoli"
+
 
     
